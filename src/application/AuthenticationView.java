@@ -34,6 +34,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public  class AuthenticationView{
@@ -48,6 +49,7 @@ public  class AuthenticationView{
 	}
 	
 	public void startView()  {
+
 	    Scene scene = new Scene(this.getLogInView(), 800,800);
         this.primaryStage.setScene(scene);
         primaryStage.setTitle("BookFace");
@@ -117,7 +119,21 @@ public  class AuthenticationView{
 		return grid;
 	}
 	
-	
+	public static void displayPopUp(String message) {
+		Stage popupwindow = new Stage();
+		popupwindow.initModality(Modality.APPLICATION_MODAL);
+		popupwindow.setTitle("Pop Up Window");
+		Label label1 = new Label(message);
+		Button button1 = new Button("Close");
+		button1.setOnAction(e -> popupwindow.close());
+		VBox layout = new VBox(10);
+		layout.getChildren().addAll(label1, button1);
+		layout.setAlignment(Pos.CENTER);
+		Scene scene1 = new Scene(layout, 300, 250);
+		popupwindow.setScene(scene1);
+		popupwindow.showAndWait();
+
+	}
 	
 	public void prepareSceneRegister(GridPane grid)  {
 
@@ -239,7 +255,18 @@ public  class AuthenticationView{
 			String email=emailField.getText();
 			String website=websiteField.getText();
 			String link=linkField.getText();
-			Date birthday=Date.valueOf(datePicker.getValue());
+			Date birthday = null;
+			try {
+				 birthday=Date.valueOf(		
+						datePicker.getValue());
+				
+			} catch (Exception e) {
+//				birthday=new Date(System.currentTimeMillis());
+				displayPopUp("Wrong date!");
+				this.startView();
+				System.out.println("aadadasfasfas");
+			}
+			
 			String strGender=(String) genderBox.getValue();
 			char gender='F';
 			if(strGender.equals("Male")) {
@@ -252,8 +279,9 @@ public  class AuthenticationView{
 			else if(tempString.equals("")){
 			System.out.println("it is empty");
 			ArrayList<String> workedForPlaces=null;
-		}
+			}
 			ArrayList<String> workedForPlaces = new ArrayList<String>(Arrays.asList(tempString.split("\\*",0)));
+			System.out.println(workedForPlaces);
 			ArrayList<String> educationPlaces=new ArrayList<String>(Arrays.asList(educationField.getText().split("\\*",0)));
 			ArrayList<String> quotes=new ArrayList<String>(Arrays.asList(quotesField.getText().split("\\*",0)));;
 			boolean isVerified=false;

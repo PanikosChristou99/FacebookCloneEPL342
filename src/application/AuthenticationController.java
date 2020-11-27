@@ -62,6 +62,9 @@ public class AuthenticationController {
 	public void signIn(String username, String password)  {
 //		User user=this.model.getUser(username);
 		User user= generateDummyUser();
+		
+		
+		
 		if (user.getPassword().equals(password)) {
 //			this.displayPopUp("correct password signed in");
 			UserController.startController(this.view.primaryStage, user);
@@ -75,6 +78,7 @@ public class AuthenticationController {
 
 	public static void startController(Stage primaryStage)   {
 		AuthenticationController controller = new AuthenticationController(primaryStage);
+
 		controller.view.startView();
 	}
 

@@ -30,7 +30,11 @@ public class Main extends Application {
 	}
 	
 	public void start(Stage primaryStage) throws FileNotFoundException {
+		
 		AuthenticationController.startController(primaryStage);
+		
+		
+		
 	}
 
 }

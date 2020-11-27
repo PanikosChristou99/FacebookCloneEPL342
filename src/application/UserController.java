@@ -56,6 +56,12 @@ public class UserController {
 		UserController controller = new UserController(primaryStage, user);
 		controller.view.startView();
 	}
-
+	
+	public void showEditInfoView(int tabnum) throws FileNotFoundException {
+		Scene newScene = new Scene(this.view.getEditInfoView(tabnum));
+		this.view.primaryStage.setScene(newScene);
+		this.view.primaryStage.show();
+	}
+		
 
 }
