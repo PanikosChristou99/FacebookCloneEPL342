@@ -3,14 +3,15 @@ import java.sql.Time;
 import java.sql.Timestamp;
 public class Event {
 	private int id;
-	public User getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(User createdBy) {
-		this.createdBy = createdBy;
-	}
-
+	private String venue;
+	private String name;
+	private Timestamp startTime;
+	private Timestamp endTime;
+	private String description;
+	private int user_id ;
+	private int loc_id;
+	private Privacy privacy;
+	
 	public Privacy getPrivacy() {
 		return privacy;
 	}
@@ -19,35 +20,38 @@ public class Event {
 		this.privacy = privacy;
 	}
 
-	public Location getLocation() {
-		return location;
-	}
-
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-
-	private String venue;
-	private String name;
-	private Timestamp startTime;
-	private Timestamp endTime;
-	private String description;
-	private User createdBy;
-	private Privacy privacy;
-	private Location location;
 	
-	public Event(int id, String venue, String name, Timestamp startTime,
-			Timestamp endTime, String description, User createdBy,
-			Privacy privacy, Location location) {
-		this.id=id;
-		this.venue=venue;
-		this.name=name;
-		this.startTime=startTime;
-		this.endTime=endTime;
-		this.description=description;		
-		this.createdBy=createdBy;
-		this.privacy=privacy;
-		this.location=location;
+
+	
+
+	public Event(int id, String venue, String name, Timestamp startTime, Timestamp endTime, String description,
+			int user_id, int loc_id, Privacy privacy) {
+		super();
+		this.id = id;
+		this.venue = venue;
+		this.name = name;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.description = description;
+		this.user_id = user_id;
+		this.loc_id = loc_id;
+		this.privacy = privacy;
+	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public int getLoc_id() {
+		return loc_id;
+	}
+
+	public void setLoc_id(int loc_id) {
+		this.loc_id = loc_id;
 	}
 
 	public int getId() {

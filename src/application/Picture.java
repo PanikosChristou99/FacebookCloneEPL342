@@ -6,14 +6,28 @@ public class Picture {
 	private double height;
 	private String link;
 	private String source;
+	private String privacy;
 	
-	public Picture(int id, double width, double height, String link, String source) {
-		this.id=id;
-		this.width=width;
-		this.height=height;
-		this.link=link;
-		this.source=source;
+	public Picture(int id, double width, double height, String link, String source, String privacy) {
+		super();
+		this.id = id;
+		this.width = width;
+		this.height = height;
+		this.link = link;
+		this.source = source;
+		this.privacy = privacy;
 	}
+
+	
+	public String getPrivacy() {
+		return privacy;
+	}
+
+
+	public void setPrivacy(String privacy) {
+		this.privacy = privacy;
+	}
+
 
 	public int getId() {
 		return id;

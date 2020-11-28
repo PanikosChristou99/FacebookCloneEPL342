@@ -6,13 +6,33 @@ public class Video {
 	private String description;
 	private double length;
 	private String source;
+	private int user_id;
 	
-	public Video(int id, String message, String description, double length, String source) {
-		this.id=id;
-		this.message=message;
-		this.description=description;
-		this.length=length;
-		this.source=source;
+	public Video(int id, String message, String description, double length, String source, int user_id) {
+		super();
+		this.id = id;
+		this.message = message;
+		this.description = description;
+		this.length = length;
+		this.source = source;
+		this.user_id = user_id;
+	}
+
+//	public Video(int id, String message, String description, double length, String source) {
+//		this.id=id;
+//		this.message=message;
+//		this.description=description;
+//		this.length=length;
+//		this.source=source;
+//		this.user_id = -1;
+//	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public int getId() {
